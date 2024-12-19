@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shifrlash va Deshifrlash</title>
+   
+    <style>
+        .button-container {
+            margin-top: 20px;
+        }
+        .message {
+            margin-top: 10px;
+            font-size: 16px;
+            color: green;
+        }
+        .icon {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        body {
+            font-family: Tw Cen MT, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #1a7b4e;
+        }
+
+        textarea {
+            width: 80%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #d7d5d5;
+            font-size: 16px;
+        }
+
+        #inputText {
+            background-color: #d7d5d5;
+            color: #333333;
+        }
+       
+    
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 15px;
+            font-size: 16px;
+            background-color: #4ca5af;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #shiftDiv {
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Ma'lumotni Shifrlash va Deshifrlash</h1>
+   
+    <label for="method">Shifrlash usulini tanlang:</label>
+    <select id="method" onchange="toggleShiftInput()">
+        <option value="caesar">Caesar Shifri</option>
+        <option value="base64">Base64</option>
+        <option value="vigenere">Vigenère Shifri</option>
+        <option value="xor">XOR Shifri</option>
+        <option value="rot13">ROT13</option><br>
+    </select><br> <br>
+
+    <!-- Sezar Shifri uchun Shift (siljitish miqdori) -->
+    <div id="shiftDiv" style="display: none;">
+        <label for="shift">Sezar Shifri uchun siljitish miqdori (shift):</label>
+        <input type="number" id="shift" value="3" min="1" max="25"><br>
+    </div>
+
+    <!-- Kalit (key) kiritish uchun input (faqat Vigenere va XOR uchun) -->
+    <div id="keyDiv" style="display: none;">
+        <label for="key">Kalitni kiriting:</label>
+        <input type="text" id="key" placeholder="Kalitni kiriting..."><br><br>
+    </div>
+
+    <textarea id="inputText" placeholder="Matnni kiriting..."></textarea><br>
+
+    <button onclick="processText('encrypt')">Shifrlash</button>
+    <button onclick="processText('decrypt')">Deshifrlash</button>
+
+    <h2>Natija:</h2>
+    <textarea id="outputText" readonly></textarea><br>
+
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
+
+
